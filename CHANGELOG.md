@@ -1,5 +1,150 @@
 # Changelog
 
+## [0.1.1](https://github.com/s-h-a-d-o-w/google-play-scraper/compare/v1.2.0...v0.1.1) (2026-09-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* **api:** the datasafety export and gplay.datasafety method are renamed to dataSafety. The CLI subcommand datasafety is renamed to data-safety.
+* **core:** exported schemas are zod/mini schemas. .parse and .safeParse behave exactly as before; classic transform methods such as .extend/.pick/.omit are gone from schema objects — import { extend } from the zod/mini entry of the same zod package to derive schemas.
+
+### Features
+
+* **app:** add transforms and result schema ([e1f95ed](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/e1f95ed6d3468e0117b90553fa23cfb47b4ee399))
+* **app:** implement app details method ([ee28b2d](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/ee28b2da3088019d8b1c5d0c5a5c3b2db11effdb))
+* **app:** port field specs from reference mappings ([555daf9](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/555daf9c30c95a11c3736a2af1be47c255eb8d15))
+* **apps:** add batch app details helper ([48157af](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/48157afc2ea55fca0466ca3d1f5419944cefe0ae))
+* **availability:** add country availability helper ([f0c946c](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/f0c946c33cf7006ab8840f477aa8d159361a1cc1))
+* **cache:** add memoized client backed by lru cache ([89dcc7c](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/89dcc7c8acde42a7da399a437955f7bd065a7073))
+* **categories:** implement categories scraper ([1d87538](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/1d87538562791c65ff6be4d3efa55fafb46b5f65))
+* **categories:** return full category taxonomy ([1464d82](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/1464d8232c740bfa9852a3d695a2133c1dee3801))
+* **cli:** accept -h as a command help alias ([aef395b](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/aef395b0cd2c15dfedd605d84e6a54b945d43d3b))
+* **cli:** add a google-play-scraper command line interface ([47ac936](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/47ac9360c555673c0de18fccc84885bbe73e3068))
+* **cli:** add command table and dispatch core ([d7371a3](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/d7371a3b693898315ca107d1b705390b5254d0dc))
+* **client:** accept a degradation callback in base options ([cff6d4e](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/cff6d4e42c755e3c87f827c362895708d26461c7))
+* **client:** add createClient factory with cross call throttling ([1f40a44](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/1f40a44b3502f7996ace3d9295ee18b4f36f8a74))
+* **client:** bind iterators to the shared client ([b64eaf2](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/b64eaf2e4c0682b4aafe059cf4bf2a32357b1610))
+* **client:** expose apps on shared and memoized clients ([cb26489](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/cb264899c0863794e7a6ca70368e7cd363b27aeb))
+* **client:** expose availability on shared and memoized clients ([e5c73bc](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/e5c73bc63244d532c145acce85bb34fc80fb5f85))
+* **client:** thread lifecycle hooks through shared clients ([4aa1f71](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/4aa1f7147ec457696f67be607d19ba4b2f009b78))
+* **cli:** expose the google-play-scraper binary ([7f64045](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/7f64045be33cc3d5285d20a87658412d73b6b966))
+* **constants:** add family subcategory codes ([cdfd1d1](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/cdfd1d1cc7e98668cb960ded61576cef5dba1be2))
+* **constants:** port play store enums and base url ([3af88ae](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/3af88ae0b807e0d2a09471aeecb75c07d9339d3c))
+* **core:** add batchexecute codec ([58bb6a9](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/58bb6a9550530b0296d0011fe556abe7319cb7af))
+* **core:** add cluster pagination and full detail resolver ([643907e](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/643907e92d9dff13324d60db79d93d0977335fde))
+* **core:** add control-character text sanitizer ([e0ad03c](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/e0ad03c40d21dd1cdeda70afd8795d255641adbb))
+* **core:** add createCountryFetch per-country fetch router ([d13623f](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/d13623fa5189071f415e61d756dd01d0f1e4363f))
+* **core:** add error taxonomy ([a8d1e07](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/a8d1e07293eda14e18c1c7d51adec8f29c85b4a0))
+* **core:** add http client with retry throttle and block detection ([0993154](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/0993154d6a30f915e49417b9fec6e439acabb870))
+* **core:** add order preserving concurrency mapper ([44b551e](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/44b551e4df6c045a008a923a061003183d48b225))
+* **core:** add raw parse seam and batchexecute envelope schema ([568b05d](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/568b05dea3bb50db9f069791f2786380aee7af4c))
+* **core:** add request lifecycle hooks ([0e0810f](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/0e0810f107a33b7f3715c2460b9ac3f85eda5a6d))
+* **core:** add safe path resolver ([c0d2aa6](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/c0d2aa602c5d12509575b965aa477a7dd0d0081f))
+* **core:** add script data parser without eval ([469cd42](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/469cd427f8152759ca3d96ed79bca8667bb85797))
+* **core:** add shared option schemas ([ecec9d4](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/ecec9d4617d88e3d99ea3a463ed5e995efe00eb9))
+* **core:** add spec extractor with fallbacks and aggregate errors ([49a0d87](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/49a0d8787feee235bafc4053aeab06eed36a46fc))
+* **core:** add the section anchor fallback integrity reason ([a62a8e6](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/a62a8e61d9f44ea9b0c488e542a57cac3912ad5b))
+* **core:** emit degradation events from cluster pagination ([c1135db](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/c1135db2ff3a3c36c298c5ebebdce2e6f5cc9743))
+* **core:** emit request lifecycle events from the http client ([3146e54](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/3146e5448b292fb115d0c42adffed424715070f1))
+* **core:** expand degradation event coverage ([d285782](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/d285782ec9f75c9c781e236d6c54a81788739ba0))
+* **core:** select script roots by structural validation ([bce5e02](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/bce5e0221eef823dd77b2a44d39ea3dd3fba0f57))
+* **core:** support caller abort signals in request options ([c527622](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/c527622505acf3a985175e19a30ccf6491fdce60))
+* **core:** support shared rate limiter injection in http client ([14f965d](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/14f965dca60af2d9dcf94feb393620b254405e00))
+* **datasafety:** implement data safety scraper ([33ca4ce](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/33ca4cefcc8ba47acf58ab945da83f276fc9c087))
+* **developer:** add streaming developer iterator ([3d237c5](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/3d237c5a711ac5d6c163a5838cd3b1d1b9040f55))
+* **developer:** implement developer method ([c3f1931](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/c3f19318b15b9a4a4632276c1213a15bbafbae91))
+* **developer:** port developer cluster specs ([50b4331](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/50b43318aa4c20f662e8e3daa7d462eb724ea021))
+* **features:** validate batchexecute response roots ([89ce63f](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/89ce63feed69cd46ea3ebf5f18ab06a03d24805f))
+* **list:** implement list method ([75dd6cc](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/75dd6ccb951aefdbc871612bced96e8e1610dc59))
+* **list:** port cluster payload template and specs ([bfb09f8](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/bfb09f83ebdb41824cc67611d20b800c888acf4b))
+* **permissions:** implement permissions rpc method ([274fa0b](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/274fa0b5f215fd4a7cd757f4a8973b5b5a03f325))
+* **reviews:** add reviews iterator and reviews all helper ([79d4566](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/79d4566f6c4ca6a918dd93ac8d239329f14d2689))
+* **reviews:** implement reviews with token pagination ([a0ac7c9](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/a0ac7c9573a5deaff7e3db600f533f9c76dfecc7))
+* **reviews:** port review rpc templates and mappings ([74233ea](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/74233ea812df7a52c1f2fb9990d7c403f8f84f63))
+* **search:** add streaming search iterator ([f3ed8d3](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/f3ed8d398d3bfdd1f6ca62baccb851bfdf08f574))
+* **search:** implement search with pagination ([e75335e](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/e75335e01880a057d81c4f0b6d9d233ccd2c0f48))
+* **search:** port search and exact match specs ([f5cc035](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/f5cc03592d5a009b4b52ad506fbb85e921de12f9))
+* **similar:** implement similar method ([d27294c](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/d27294c64e4e70681124b1e72b045df66b325958))
+* **similar:** port cluster discovery specs ([b000835](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/b00083532996f3687f4315a6416dd46cbf555a41))
+* **suggest:** implement suggest method ([67b3922](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/67b39225b3ffff66a33e24c098da0f1e2620f795))
+* **suggest:** port suggest rpc spec ([6543650](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/6543650514a21b33fd5f1aecd1d1ae2fb7998a91))
+
+
+### Bug Fixes
+
+* **app:** anchor details and comments parsing by rpc id ([5e4deb6](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/5e4deb629b0057dc11754e58926f64b449bb9461))
+* **app:** read the discount end date from its timestamp node ([69732f9](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/69732f90e451a8d7f315ec3b5c3e6a83c52a2123))
+* **app:** restore absence contracts for unrated and restricted listings ([953977c](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/953977c8b22195b6beb61261de691e76e55f6bea))
+* **app:** strip control characters from description and changelog ([4835a58](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/4835a58e4649dae5750f322e72645e8457396591))
+* **cli:** map --version failures to a clean exit 1 ([837b0f4](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/837b0f492e81eb65b9cdcfa4d82598feede7b2a1))
+* **cli:** reject unexpected extra arguments ([0e19de5](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/0e19de539a8c5c8e7edd519a3bfdeffeae31bcc5))
+* **core:** bound and parse http-date retry-after values ([5f677dc](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/5f677dc2da98cc0923e9977ec3016a8ca2248137))
+* **core:** cancel unread bodies of error responses ([c24de81](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/c24de81b89333ec2d7a7908907dc1fc07afba4f8))
+* **core:** default the offer fields when a listing has no offer ([8494cfb](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/8494cfbbafee80feebc9d51789417a54cabddb73))
+* **core:** harden scraper integrity and rpc anchoring ([6f1237e](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/6f1237e1f7a9fc20cb9f148903610269542b11e7))
+* **core:** make cancellation immediate across the request lifecycle ([98a8459](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/98a8459b319659e4ea52f95edbc4d2dda760837a))
+* **core:** make retry and throttle waits abortable ([c46b6e0](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/c46b6e0baf2899e9999c23eb1cf21f2c06223016))
+* **core:** observe aborts raised from lifecycle hooks and queue entry ([1fd0c8f](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/1fd0c8f2606be83350c6ec4c61620ba06a5003e2))
+* **core:** parse preregistration listings that carry no offer node ([73da7a4](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/73da7a4fb88682abe55b4426c20f3d6d13a09a7b))
+* **core:** reject non finite price micros ([005c3a7](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/005c3a713b5c277ff585ec1663bfd8f9353ef722))
+* **core:** reject non numeric price micros ([323c0f7](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/323c0f77f7eee282b7f4271907d1df13e14a46ab))
+* **core:** release the per attempt timeout signal ([47162ea](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/47162ea698c59b499c59cd034bf15452ed103933))
+* **datasafety:** anchor report parsing by rpc id ([386bfdd](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/386bfdd204bddf9c4da6777894b0f9103d4f56e1))
+* **developer:** fall back to alternate layout when apps are empty ([ca3c6b4](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/ca3c6b422f2a02215d88822c08248ca5b81d0219))
+* **developer:** fall back to alternate layout when apps are empty ([03fd28f](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/03fd28ff14595baac3ad39884f2437222aa5b1fe))
+* **e2e:** anchor review counts to the live first page ([2868f0e](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/2868f0eaff75fd275e8f71f9378b8982b41f3068))
+* **e2e:** derive the iterator stream limits from the live first page ([b9e5c58](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/b9e5c585961c154bb04aa4ba60797e0322434f78))
+* **e2e:** derive the last pinned counts from live pages and constants ([76808da](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/76808da2f3b21070ae8e644a58e7dd127f3c2a75))
+* **e2e:** drop catalogue count floors from report surfaces ([d2beed6](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/d2beed610e1f602c7288651c925371d80628a26f))
+* **e2e:** key the offer contract on currency instead of preregistration ([abacd7a](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/abacd7afe954e2feaecbcc3c8467ad6d0bb0c76d))
+* **e2e:** let vitest own the cli process timeout ([6646c4f](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/6646c4f15acce3cef44cdf66f2ae2523b9874621))
+* **e2e:** stop live contract tests failing on catalogue movement ([c6b1102](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/c6b1102ebcfa8b76528a6ad660455aaa7b858a08))
+* **e2e:** stop live contracts failing on catalogue count drift ([59ed3b8](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/59ed3b8b30f947d4f9ae61bccc470cb56ffca1c1))
+* **e2e:** stop pinning catalogue state in live contract tests ([cb872a4](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/cb872a4c11bdaaf457c07f0ca16a556da45a13ea))
+* **e2e:** stop pinning search rank and result counts ([6010295](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/60102950a4ccbbd61170f9782020d2540d1bd0bf))
+* **e2e:** stop pinning search result counts ([cdab21b](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/cdab21b6bf617a2d72b69f0bc7b23cf71a90d5dd))
+* **e2e:** stop pinning the google developer catalogue size ([932db2a](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/932db2ad92489ec4fdb2a20615d4d30c3678c66f)), closes [#116](https://github.com/s-h-a-d-o-w/google-play-scraper/issues/116)
+* **e2e:** stop pinning the similar cluster catalogue size ([7e45420](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/7e45420efb95c91bfdde9c72a5229189b721b126))
+* **e2e:** stop pinning top chart sizes in the list suite ([b6b10d4](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/b6b10d43fbd029a25dfaea018ffe3789596e9a45))
+* **e2e:** widen the histogram lag tolerance to measured drift ([988bc46](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/988bc46af5602dd83f5f9081c54f2aa2f6f10f4c))
+* **list:** accept collections google reports as empty ([5b27ab0](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/5b27ab086ab11c950ba501d93de3eda3d95a988a))
+* **memoized:** key cached calls by function and signal identity ([d95e76d](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/d95e76d5a673252a5d4b922af54508e05307efdf))
+* **permissions:** accept listings without a permission section ([f869cee](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/f869ceecb8439724c4418eb415e634c63d5a471a))
+* **reviews:** pad nanoseconds before deriving date milliseconds ([e18b3d9](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/e18b3d9cc34ac7380e11fb111ae8185e34edae1e))
+* **reviews:** pad nanoseconds before deriving date milliseconds ([1cda873](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/1cda873a78ba69ab1c68f31b0be0957204415d29))
+* **reviews:** strip control characters from review text ([06260cf](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/06260cf4c78a1ada393868d94734681471e569ef))
+* **reviews:** validate the raw date tuple before deriving timestamps ([37fa23f](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/37fa23f4b6929004a8fb392481be5c5afef21593))
+* **search:** anchor result parsing by rpc id ([6b4a9f5](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/6b4a9f57fb4fea975d0f5586906081886af7dfc8))
+* **search:** degrade gracefully when a cluster page fails to parse ([af7c649](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/af7c64958ff3b633df86f6034fe7c7af3a920288))
+* **search:** degrade gracefully when a cluster page fails to parse ([9148f62](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/9148f621c07d3ba412171d77eea5e92bbbcd6ac3))
+* **search:** enforce price filter client-side ([7bd2b69](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/7bd2b694279d88e19b20b427c2e7128bdb3e015f))
+* **search:** enforce price filter client-side ([2a56f47](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/2a56f4776ce6ffc855c5a5d1bd7a22ada31003a4))
+* **search:** fall back to the detail offer node for exact match pricing ([b45ed22](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/b45ed2273dcab41031e82c0d10c0ba772fbf67cb))
+* **search:** keep scanning past an unusable exact match card ([04fe9bf](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/04fe9bfe34143cbc5128bd75706e34cb31996d9b))
+* **search:** prefer an exact match card that actually extracts ([b942f24](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/b942f248958914124af412f092951ed7583e7598))
+* **search:** resolve the exact match card across sections ([5ed6a3d](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/5ed6a3d3601c74580343bc831c2b0bcf2d0f30dd))
+* **search:** return the exact match card search was silently dropping ([33f595b](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/33f595b8e87de0d8c2d469554cbcbda3599f2e38))
+* **search:** return the exact match card when the page carries no list ([ca1294a](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/ca1294af0d5cbbb91b26d7d938184b28bad5e46d))
+* **similar:** accept a null cluster collection ([5e0f029](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/5e0f029fcd74b9297a880a278590aa3e3b0280bf))
+
+
+### Performance Improvements
+
+* **core:** keep zod mini tree-shakeable via direct core imports ([804e2e3](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/804e2e3793d6420ebb238dab2b13c9a3b66b81c9))
+* **core:** parse only selected script blocks ([5fbffa1](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/5fbffa142af34d10b94936c5907ac805baca1fe8))
+
+
+### Miscellaneous Chores
+
+* prepare initial release ([4bf4cdc](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/4bf4cdceec968cbb5273ad65436bb31be01059d5))
+* release 0.1.1 ([9556912](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/95569122782f79a0f08e82b9e11b76637475ad5c))
+
+
+### Code Refactoring
+
+* **api:** rename datasafety to dataSafety ([ccf9061](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/ccf906133cb5584f8d73fc067f89a00356f0b6d0))
+* **core:** complete the zod mini public surface ([512d284](https://github.com/s-h-a-d-o-w/google-play-scraper/commit/512d28440746a30313685ec9ee6e319fe557115c))
+
 ## [1.2.0](https://github.com/MrAdex77/google-play-scraper/compare/v1.1.0...v1.2.0) (2026-09-11)
 
 
