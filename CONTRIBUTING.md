@@ -7,6 +7,8 @@ Thanks for your interest in improving this project. This guide covers the local 
 - Node.js 22.12 or newer
 - [pnpm](https://pnpm.io) 11
 
+The dev Node version lives in `package.json` under `devEngines.runtime`, and pnpm downloads it on install when your local Node does not match. CI installs pnpm and that same Node version through [pnpm/setup](https://github.com/pnpm/setup), so there is one place to bump it.
+
 ## Setup
 
 ```
